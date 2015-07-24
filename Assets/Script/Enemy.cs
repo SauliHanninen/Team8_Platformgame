@@ -24,11 +24,17 @@ public class Enemy : MonoBehaviour {
 			speed = -Mathf.Abs (speed); // move left
 		}
 	}
-		void OnTriggerEnter(Collider collider){
-			GameObject collidedWith = collider.gameObject;
-			if (collidedWith.CompareTag ("Soldier")) {
-				print("You died!");
-				Destroy(collidedWith);
-			}
+	void OnTriggerEnter(Collider collider){
+		GameObject collidedWith = collider.gameObject;
+		if (collidedWith.CompareTag ("Soldier") && (collidedWith.transform.position.y <= (transform.position.y+0.2 ))) {
+			print ("You died!");
+			print (transform.position.y);
+			Destroy (collidedWith);
+			//Soldier.lives--;
+		} else if (collidedWith.CompareTag ("Soldier") && (collidedWith.transform.position.y > (transform.position.y+0.2))){
+
+			Destroy(gameObject);
+			//Destroy (collider);
 		}
+	}
 }

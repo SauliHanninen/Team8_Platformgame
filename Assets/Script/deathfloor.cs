@@ -9,6 +9,7 @@ public class deathfloor : MonoBehaviour {
 		if (collidedWith.CompareTag ("Soldier")) {
 			print("You died!");
 			Destroy(collidedWith);
+			//Soldier.lives--;
 		}
 	}
 
