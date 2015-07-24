@@ -31,4 +31,13 @@ public class UI_manager : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void backToMainMenu(){
+		Application.LoadLevel ("0_menu");
+	}
+
+	public void tryAgain(){
+		Application.LoadLevel ("1_game");
+	}
+
 }

@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour {
 	// Distance where the enemy turns around
 	public float leftEdge;
 	public float rightEdge;
+
+	public GameObject gameOverScreen;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -30,9 +33,9 @@ public class Enemy : MonoBehaviour {
 			print ("You died!");
 			print (transform.position.y);
 			Destroy (collidedWith);
+			gameOverScreen.SetActive (true);
 			//Soldier.lives--;
 		} else if (collidedWith.CompareTag ("Soldier") && (collidedWith.transform.position.y > (transform.position.y+0.2))){
-
 			Destroy(gameObject);
 			//Destroy (collider);
 		}
