@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class UI_manager : MonoBehaviour {
 
+	public Text ammoText;
 	public GameObject selectLevelPanel;
 	public GameObject gameOverScreen;
 
@@ -29,7 +31,7 @@ public class UI_manager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		ShowTexts ();
 	}
 
 	public void backToMainMenu(){
@@ -38,6 +40,9 @@ public class UI_manager : MonoBehaviour {
 
 	public void tryAgain(){
 		Application.LoadLevel ("1_game");
+	}
+	void ShowTexts(){
+		ammoText.text =  " "+Soldier.ammo ;
 	}
 
 }

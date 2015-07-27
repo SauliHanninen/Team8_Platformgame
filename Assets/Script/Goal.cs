@@ -13,7 +13,7 @@ public class Goal : MonoBehaviour {
 		// Check to see if it's a Projectile
 		if ( other.gameObject.tag == "Soldier" ) {
 			print ("you won!");
-			int score=PlayerPrefs.GetInt("BestScore");
+
 
 			// If so, set goalMet to true
 			Goal.goalMet = true;

@@ -8,6 +8,9 @@ public class Soldier : MonoBehaviour {
 	public static int lives;
 	private bool isFalling;
 
+	static public int ammo;
+	//boolean to see the direction
+	bool direction;
 	//projectile features
 	public GameObject prefabProjectile;
 	//public Vector3 launchPos;
@@ -16,12 +19,12 @@ public class Soldier : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		direction = true;
 		lives = 3;
 	}
 
 	void Awake(){
-		//launchPos = transform.position;
+		ammo = 10;
 	}
 	// Update is called once per frame
 	void Update () {
@@ -32,21 +35,24 @@ public class Soldier : MonoBehaviour {
 		if (Input.GetKey (KeyCode.LeftArrow)) {
 			soldierPosition.x-=0.1F;
 			this.transform.position=soldierPosition;
+			direction=false;
 		}
 		if (Input.GetKey (KeyCode.RightArrow)) {
 			soldierPosition.x+=0.1F;
 			this.transform.position=soldierPosition;
+			direction=true;
 		}
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		if (Input.GetKeyDown (KeyCode.Space) && ammo>0) {
 			// Instantiate a projectile
 			projectile = Instantiate (prefabProjectile) as GameObject;
 			// Start it at the launch point
 			projectile.transform.position = transform.position;
-			// Set it to isKinematic for now
-			projectile.GetComponent<Rigidbody>().isKinematic = true;
-			projectile.transform.Translate(Time.deltaTime*velocityMult,0,0); 
-			//projectile.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
-			//transform.Translate(Vector3.forward Time.deltaTime velocityMult);;
+			// Set the speed for the bullet
+			if(direction)
+			projectile.GetComponent<Rigidbody>().velocity = new Vector3(10, 0, 0);
+			if(!direction)
+				projectile.GetComponent<Rigidbody>().velocity=new Vector3(-10,0,0);
+			ammo--;
 		}
 
 		if (Input.GetKeyDown(KeyCode.UpArrow) && isFalling == false) {
