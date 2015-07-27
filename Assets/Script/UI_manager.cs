@@ -22,9 +22,16 @@ public class UI_manager : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
+	
 		if (Application.loadedLevelName.Equals ("0_menu")) {
 			selectLevelPanel.SetActive (false);
 		}else if(Application.loadedLevelName.Equals ("1_game")){
+			gameOverScreen.SetActive (false);
+		}
+		else if(Application.loadedLevelName.Equals ("0_tutorial")){
+		        gameOverScreen.SetActive (false);
+		}
+		else if(Application.loadedLevelName.Equals ("3_game")){
 			gameOverScreen.SetActive (false);
 		}
 	}
