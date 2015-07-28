@@ -7,12 +7,12 @@ public class Enemy : MonoBehaviour {
 	// Distance where the enemy turns around
 	public float leftEdge;
 	public float rightEdge;
-
+	bool direction;
 	public GameObject gameOverScreen;
 
 	// Use this for initialization
 	void Start () {
-	
+		direction = false;
 	}
 	
 	// Update is called once per frame
@@ -23,19 +23,23 @@ public class Enemy : MonoBehaviour {
 		// Changing direction
 		if (savedEnemyPosition.x < leftEdge) { // left edge
 			speed = Mathf.Abs (speed); // Move right
+			direction=true;
+			GetComponent<Animator>().SetBool ("direction",direction);
 		} else if (savedEnemyPosition.x > rightEdge) { // right edge
 			speed = -Mathf.Abs (speed); // move left
+			direction=false;
+			GetComponent<Animator>().SetBool ("direction",direction);
 		}
 	}
 	void OnTriggerEnter(Collider collider){
 		GameObject collidedWith = collider.gameObject;
-		if (collidedWith.CompareTag ("Soldier") && (collidedWith.transform.position.y <= (transform.position.y+0.2 ))) {
+		if (collidedWith.CompareTag ("Soldier") && (collidedWith.transform.position.y <= (transform.position.y+1 ))) {
 			print ("You died!");
 			print (transform.position.y);
 			Destroy (collidedWith);
 			gameOverScreen.SetActive (true);
 			//Soldier.lives--;
-		} else if (collidedWith.CompareTag ("Soldier") && (collidedWith.transform.position.y > (transform.position.y+0.2))){
+		} else if (collidedWith.CompareTag ("Soldier") && (collidedWith.transform.position.y > (transform.position.y+1))){
 			Destroy(gameObject);
 			//Destroy (collider);
 		}
