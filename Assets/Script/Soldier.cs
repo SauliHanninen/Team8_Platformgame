@@ -56,7 +56,7 @@ public class Soldier : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown(KeyCode.UpArrow) && isFalling == false) {
-			GetComponent<Rigidbody>().AddForce(new Vector3 (0, 500, 0));
+			GetComponent<Rigidbody>().AddForce(new Vector3 (0, 350, 0));
 			isFalling = true;
 		}
 
