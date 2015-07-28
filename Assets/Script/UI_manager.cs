@@ -20,16 +20,26 @@ public class UI_manager : MonoBehaviour {
 	public void hideSelectLevelPanel(){
 		selectLevelPanel.SetActive (false);
 	}
+	public void StartLevel2(){
+		Application.LoadLevel ("2_game");
+	}
+	public void StartLevel3(){
+		Application.LoadLevel ("3_game");
+	}
+	public void StartTutorial(){
+		Application.LoadLevel ("0_tutorial");
+	}
 	// Use this for initialization
 	void Start () {
 	
 		if (Application.loadedLevelName.Equals ("0_menu")) {
 			selectLevelPanel.SetActive (false);
-		}else if(Application.loadedLevelName.Equals ("1_game")){
+		} else if (Application.loadedLevelName.Equals ("1_game")) {
 			gameOverScreen.SetActive (false);
-		}
-		else if(Application.loadedLevelName.Equals ("0_tutorial")){
-		        gameOverScreen.SetActive (false);
+		} else if (Application.loadedLevelName.Equals ("0_tutorial")) {
+			gameOverScreen.SetActive (false);
+		} else if (Application.loadedLevelName.Equals ("2_game")) {
+			gameOverScreen.SetActive (false);
 		}
 		else if(Application.loadedLevelName.Equals ("3_game")){
 			gameOverScreen.SetActive (false);
@@ -46,7 +56,14 @@ public class UI_manager : MonoBehaviour {
 	}
 
 	public void tryAgain(){
-		Application.LoadLevel ("1_game");
+		if(Application.loadedLevelName.Equals ("1_game"))
+			Application.LoadLevel ("1_game");
+		if (Application.loadedLevelName.Equals ("2_game"))
+			Application.LoadLevel ("2_game");
+		if (Application.loadedLevelName.Equals ("3_game"))
+			Application.LoadLevel ("3_game");
+		if (Application.loadedLevelName.Equals ("0_tutorial"))
+			Application.LoadLevel ("0_tutorial");
 	}
 	void ShowTexts(){
 		ammoText.text =  " "+Soldier.ammo ;

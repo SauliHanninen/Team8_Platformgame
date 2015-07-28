@@ -22,5 +22,15 @@ public class Goal : MonoBehaviour {
 			c.a = 1;
 			GetComponent<Renderer>().material.color = c;
 		}
+		if (Goal.goalMet == true) {
+			if(Application.loadedLevelName.Equals ("0_tutorial"))
+				Application.LoadLevel ("0_menu");
+			if(Application.loadedLevelName.Equals ("1_game"))
+				Application.LoadLevel ("2_game");
+			if(Application.loadedLevelName.Equals ("2_game"))
+				Application.LoadLevel ("3_game");
+			if(Application.loadedLevelName.Equals ("3_game"))
+				Application.LoadLevel ("0_menu");
+		}
 	}
 }
