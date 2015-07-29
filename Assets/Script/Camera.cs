@@ -14,10 +14,12 @@ public class Camera : MonoBehaviour {
 	}
 
 	void Update(){
-		Vector3 destination = character.transform.position;
-		destination.z = camZ;
-		// Set the camera to the destination
-		transform.position = destination;
+		if (character != null) {
+			Vector3 destination = character.transform.position;
+			destination.z = camZ;
+			// Set the camera to the destination
+			transform.position = destination;
+		}
 	}
 
 }
