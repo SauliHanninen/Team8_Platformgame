@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour {
 			Destroy (gameObject);
 
 			Soldier.ammo += 1;
-		} else if (collider && !collidedWith.CompareTag ("Soldier") && !collidedWith.CompareTag ("Final_boss")) {
+		} else if (collider && !collidedWith.CompareTag ("Soldier") && !collidedWith.CompareTag ("Final_boss") && !collidedWith.CompareTag ("Tutorialbox")) {
 			Destroy (gameObject);
 		} else if (collidedWith.CompareTag ("Final_boss")) {
 			if(Final_boss.life>0)
