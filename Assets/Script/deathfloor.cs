@@ -11,8 +11,7 @@ public class deathfloor : MonoBehaviour {
 		if (collidedWith.CompareTag ("Soldier")) {
 			print("You died!");
 			Destroy(collidedWith);
-			gameOverScreen.SetActive (true);
-			//Soldier.lives--;
+			UI_manager.S.ShowGameOverScreen ();
 		}
 	}
 

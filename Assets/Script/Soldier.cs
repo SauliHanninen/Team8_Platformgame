@@ -18,6 +18,7 @@ public class Soldier : MonoBehaviour {
 	//public Vector3 launchPos;
 	public GameObject projectile;
 	public float velocityMult = 6f;
+	static public Soldier S;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,7 @@ public class Soldier : MonoBehaviour {
 
 	void Awake(){
 		ammo = 10;
+		S = this;		
 	}
 	// Update is called once per frame
 	void Update () {

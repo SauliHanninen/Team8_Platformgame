@@ -7,7 +7,7 @@ public class UI_manager : MonoBehaviour {
 	public Text ammoText;
 	public GameObject selectLevelPanel;
 	public GameObject gameOverScreen;
-
+	static public UI_manager S;
 	public void StartGame(){
 		Application.LoadLevel ("1_game");
 	}
@@ -40,15 +40,18 @@ public class UI_manager : MonoBehaviour {
 			gameOverScreen.SetActive (false);
 		} else if (Application.loadedLevelName.Equals ("2_game")) {
 			gameOverScreen.SetActive (false);
-		}
-		else if(Application.loadedLevelName.Equals ("3_game")){
+		} else if (Application.loadedLevelName.Equals ("3_game")) {
 			gameOverScreen.SetActive (false);
-		}
+		} else if (Application.loadedLevelName.Equals ("4_finalscene"))
+			gameOverScreen.SetActive (false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		ShowTexts ();
+	}
+	void Awake(){
+		S = this;
 	}
 
 	public void backToMainMenu(){
@@ -64,9 +67,14 @@ public class UI_manager : MonoBehaviour {
 			Application.LoadLevel ("3_game");
 		if (Application.loadedLevelName.Equals ("0_tutorial"))
 			Application.LoadLevel ("0_tutorial");
+		if (Application.loadedLevelName.Equals ("4_finalscene"))
+			Application.LoadLevel ("4_finalscene");
 	}
 	void ShowTexts(){
 		ammoText.text =  " "+Soldier.ammo ;
+	}
+	 public void ShowGameOverScreen(){
+		gameOverScreen.SetActive (true);
 	}
 
 }
