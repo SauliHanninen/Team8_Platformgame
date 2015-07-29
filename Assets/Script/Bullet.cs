@@ -5,13 +5,14 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider){
 		GameObject collidedWith = collider.gameObject;
+		
 
 		if (collidedWith.CompareTag ("Enemy")) {
 			Destroy (collidedWith);
 			Destroy (gameObject);
 			print ("I destroyed");
 			Soldier.ammo+=1;
-		} else if (collider && !collidedWith.CompareTag ("Soldier")){
+		} else if (collider && !collidedWith.CompareTag ("Soldier") && !collidedWith.CompareTag ("Ammo") && !collidedWith.CompareTag("tutorialbox") && !collidedWith.CompareTag("Goal")){
 			Destroy(gameObject);
 			print ("i destroyed wrongly");
 		}

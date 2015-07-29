@@ -7,6 +7,9 @@ public class UI_manager : MonoBehaviour {
 	public Text ammoText;
 	public GameObject selectLevelPanel;
 	public GameObject gameOverScreen;
+	public GameObject instruction1;
+	public GameObject instruction2;
+	public GameObject instruction3;
 
 	public void StartGame(){
 		Application.LoadLevel ("1_game");
@@ -38,6 +41,9 @@ public class UI_manager : MonoBehaviour {
 			gameOverScreen.SetActive (false);
 		} else if (Application.loadedLevelName.Equals ("0_tutorial")) {
 			gameOverScreen.SetActive (false);
+			instruction1.SetActive (false);
+			instruction2.SetActive (false);
+			instruction3.SetActive (false);
 		} else if (Application.loadedLevelName.Equals ("2_game")) {
 			gameOverScreen.SetActive (false);
 		}
