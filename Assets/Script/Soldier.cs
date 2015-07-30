@@ -27,7 +27,7 @@ public class Soldier : MonoBehaviour {
 	}
 
 	void Awake(){
-		ammo = 10;
+		ammo = 5;
 		S = this;		
 	}
 	// Update is called once per frame

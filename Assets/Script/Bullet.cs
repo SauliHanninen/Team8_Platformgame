@@ -9,8 +9,6 @@ public class Bullet : MonoBehaviour {
 		if (collidedWith.CompareTag ("Enemy")) {
 			Destroy (collidedWith);
 			Destroy (gameObject);
-
-			Soldier.ammo += 1;
 		} else if (collider && !collidedWith.CompareTag ("Soldier") && !collidedWith.CompareTag ("Final_boss") && !collidedWith.CompareTag ("Tutorialbox") && !collidedWith.CompareTag ("Goal")) {
 			Destroy (gameObject);
 		} else if (collidedWith.CompareTag ("Final_boss")) {
