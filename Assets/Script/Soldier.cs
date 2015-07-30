@@ -20,6 +20,8 @@ public class Soldier : MonoBehaviour {
 	public float velocityMult = 6f;
 	static public Soldier S;
 
+	public bool passedLevel = false;
+
 	// Use this for initialization
 	void Start () {
 		direction = true;
@@ -27,8 +29,17 @@ public class Soldier : MonoBehaviour {
 	}
 
 	void Awake(){
-		ammo = 5;
-		S = this;		
+		if (passedLevel) {
+			ammo = PlayerPrefs.GetInt ("Ammoleft");
+			passedLevel = false;
+			print ("passedlevel is true");
+		} else {
+			ammo = 5;
+			print ("passedlevel is false");
+		}
+
+
+		S = this;
 	}
 	// Update is called once per frame
 	void Update () {
@@ -88,6 +99,10 @@ public class Soldier : MonoBehaviour {
 
 	}
 
+	public void saveAmmoLeft(){
+		PlayerPrefs.SetInt("Ammoleft", Soldier.ammo);
+		passedLevel = true;
+	}
 
 
 

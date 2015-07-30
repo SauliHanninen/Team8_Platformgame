@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class Goal : MonoBehaviour {
+
+
+
 	void Awake(){
 
 
@@ -23,6 +26,9 @@ public class Goal : MonoBehaviour {
 			GetComponent<Renderer>().material.color = c;
 		}
 		if (Goal.goalMet == true) {
+
+			Soldier.S.saveAmmoLeft();
+
 			if(Application.loadedLevelName.Equals ("0_tutorial"))
 				Application.LoadLevel ("0_menu");
 			if(Application.loadedLevelName.Equals ("1_game"))
