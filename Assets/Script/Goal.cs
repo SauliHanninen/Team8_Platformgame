@@ -38,7 +38,7 @@ public class Goal : MonoBehaviour {
 			if(Application.loadedLevelName.Equals ("3_game"))
 				Application.LoadLevel ("4_finalscene");
 			if(Application.loadedLevelName.Equals ("4_finalscene"))
-				Application.LoadLevel ("0_menu");
+				UI_manager.S.winPanel.SetActive (true);
 		}
 	}
 }

@@ -11,6 +11,7 @@ public class UI_manager : MonoBehaviour {
 	public GameObject instruction1;
 	public GameObject instruction2;
 	public GameObject instruction3;
+	public GameObject winPanel;
 
 	public void StartGame(){
 		Application.LoadLevel ("1_game");
@@ -51,6 +52,7 @@ public class UI_manager : MonoBehaviour {
 			gameOverScreen.SetActive (false);
 		} else if (Application.loadedLevelName.Equals ("4_finalscene"))
 			gameOverScreen.SetActive (false);
+			winPanel.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -82,6 +84,9 @@ public class UI_manager : MonoBehaviour {
 	}
 	 public void ShowGameOverScreen(){
 		gameOverScreen.SetActive (true);
+	}
+	public void ShowWinPanel(){
+		winPanel.SetActive (true);
 	}
 
 }

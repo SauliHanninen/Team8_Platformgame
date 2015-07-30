@@ -18,6 +18,7 @@ public class Flipping_enemy : MonoBehaviour {
 	void Start () {
 		direction = false;
 		ammo = 3;
+		InvokeRepeating ("shoot", 1, 1);
 	}
 	
 	// Update is called once per frame
@@ -52,7 +53,7 @@ public class Flipping_enemy : MonoBehaviour {
 	void shoot(){
 		if (!shoots)
 			return;
-		if (shoots && Soldier.S.transform.position.x-this.transform.position.x<7 && ammo>0) {
+		if (shoots && ammo>0) {
 			// Instantiate a projectile
 			projectile = Instantiate (prefabProjectile) as GameObject;
 			// Start it at the launch point
