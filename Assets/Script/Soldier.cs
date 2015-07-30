@@ -19,8 +19,9 @@ public class Soldier : MonoBehaviour {
 	public GameObject projectile;
 	public float velocityMult = 6f;
 	static public Soldier S;
+	public AudioClip laser_shot;
 
-	public bool passedLevel = false;
+	static public bool passedLevel = false;
 
 	// Use this for initialization
 	void Start () {
@@ -64,6 +65,7 @@ public class Soldier : MonoBehaviour {
 			GetComponent<Animator>().SetBool ("moving",moving);
 		}
 		if (Input.GetKeyDown (KeyCode.Space) && ammo>0) {
+			AudioSource.PlayClipAtPoint(laser_shot, transform.position);
 			// Instantiate a projectile
 			projectile = Instantiate (prefabProjectile) as GameObject;
 			// Start it at the launch point
