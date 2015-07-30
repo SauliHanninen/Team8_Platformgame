@@ -59,9 +59,9 @@ public class Soldier : MonoBehaviour {
 			projectile.transform.position = transform.position;
 			// Set the speed for the bullet
 			if(direction)
-			projectile.GetComponent<Rigidbody>().velocity = new Vector3(10, 0, 0);
+			projectile.GetComponent<Rigidbody>().velocity = new Vector3(15, 0, 0);
 			if(!direction)
-				projectile.GetComponent<Rigidbody>().velocity=new Vector3(-10,0,0);
+				projectile.GetComponent<Rigidbody>().velocity=new Vector3(-15,0,0);
 			ammo--;
 		}
 
