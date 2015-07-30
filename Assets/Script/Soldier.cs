@@ -20,7 +20,7 @@ public class Soldier : MonoBehaviour {
 	public float velocityMult = 6f;
 	static public Soldier S;
 
-	public bool passedLevel = false;
+	static public bool passedLevel = false;
 
 	// Use this for initialization
 	void Start () {
