@@ -9,10 +9,15 @@ public class Flipping_enemy : MonoBehaviour {
 	public float rightEdge;
 	bool direction;
 	public GameObject gameOverScreen;
+	public GameObject projectile;
+	public GameObject prefabProjectile;
+	public bool shoots;
+	int ammo;
 	
 	// Use this for initialization
 	void Start () {
 		direction = false;
+		ammo = 3;
 	}
 	
 	// Update is called once per frame
@@ -42,6 +47,22 @@ public class Flipping_enemy : MonoBehaviour {
 		} else if (collidedWith.CompareTag ("Soldier") && (collidedWith.transform.position.y > (transform.position.y+1))){
 			Destroy(gameObject);
 			//Destroy (collider);
+		}
+	}
+	void shoot(){
+		if (!shoots)
+			return;
+		if (shoots && Soldier.S.transform.position.x-this.transform.position.x<7 && ammo>0) {
+			// Instantiate a projectile
+			projectile = Instantiate (prefabProjectile) as GameObject;
+			// Start it at the launch point
+			projectile.transform.position = transform.position;
+			// Set the speed for the bullet
+			if(direction)
+				projectile.GetComponent<Rigidbody>().velocity = new Vector3(15, 0, 0);
+			if(!direction)
+				projectile.GetComponent<Rigidbody>().velocity=new Vector3(-15,0,0);
+			ammo--;
 		}
 	}
 }
