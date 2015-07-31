@@ -14,6 +14,7 @@ public class UI_manager : MonoBehaviour {
 	public GameObject winPanel;
 
 	public void StartGame(){
+		Goal.goalMet = false;
 		Application.LoadLevel ("1_game");
 	}
 	public void QuitGame(){
